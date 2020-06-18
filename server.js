@@ -8,7 +8,7 @@ app.use(bodyParser.json());
 
 let uploadedText;
 
-// POST request to http://localhost:8080/text
+// POST request to http://localhost:8080/text, for uploading text
 app.post("/text", (req, res) => {
   // Fetching 'text' variable from request body of form:
   // {
@@ -28,7 +28,8 @@ app.post("/text", (req, res) => {
   res.status(200).send();
 });
 
-app.get("/", (req, res) => {
+// GET request to http://localhost:8080/text, for fetching uploaded text
+app.get("/text", (req, res) => {
   // return in memory uploaded text
   return res.json({ text: uploadedText });
   //res.sendFile(path.join(__dirname + "/text.txt"));
